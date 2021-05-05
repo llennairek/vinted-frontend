@@ -1,0 +1,36 @@
+header {
+  background-color: #fff;
+}
+
+nav {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 44px;
+  margin-right: 48px;
+}
+
+.search-container {
+  min-height: 36px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: #f5f6f7;
+  margin-right: 48px;
+  padding: 0 11px;
+  border-radius: 3px;
+}
+
+.search-container input {
+  font-size: 16px;
+  background-color: #f5f6f7;
+  border: none;
+}
+
+.buttons-container button:not(:last-child) {
+  margin-right: 8px;
+}

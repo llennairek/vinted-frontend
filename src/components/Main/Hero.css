@@ -1,0 +1,27 @@
+.hero-container {
+  height: 65vh;
+  min-height: 400px;
+  background-image: url("../../assets/hero-image.jpg");
+  background-size: cover;
+  background-position: center;
+  justify-content: flex-start;
+}
+
+.hero-card-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-card {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 3px;
+  font-size: 34px;
+  font-weight: 500;
+  padding: 32px;
+}
+
+.hero-card button {
+  margin-top: 32px;
+}

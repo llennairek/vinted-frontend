@@ -1,0 +1,73 @@
+.offer-details-container {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.offer-img-container {
+  width: 40%;
+  height: 75vh;
+}
+.offer-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.offer-infos {
+  background-color: #fff;
+  width: 30%;
+  height: 75vh;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.offer-infos-price {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.offer-infos-details-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.offer-infos-details-item > span {
+  width: 50%;
+}
+
+.offer-infos-details-item > span:first-child {
+  color: #bfbfbf;
+}
+
+.offer-infos-details-item > span:last-child {
+  font-weight: 700;
+}
+
+.offer-infos-description p:first-child {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.offer-infos-description p:last-child {
+  color: #bfbfbf;
+}
+
+.offer-infos-owner {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.offer-infos-owner img {
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin-right: 8px;
+}
