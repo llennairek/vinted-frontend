@@ -26,6 +26,7 @@ nav {
 }
 
 .search-container input {
+  width: 100%;
   font-size: 16px;
   background-color: #f5f6f7;
   border: none;
