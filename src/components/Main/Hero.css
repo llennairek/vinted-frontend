@@ -39,3 +39,29 @@
   right: 0;
   margin-left: 50%;
 }
+
+.hero-card-phones {
+  display: none;
+
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 16px;
+}
+.hero-card-phones p {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 576px) {
+  .hero-container {
+    height: 25vh;
+  }
+  .hero-card {
+    display: none;
+  }
+  .hero-card-phones {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
