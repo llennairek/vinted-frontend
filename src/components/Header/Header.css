@@ -30,6 +30,8 @@ nav {
   font-size: 16px;
   background-color: #f5f6f7;
   border: none;
+  outline: none;
+  line-height: 2;
 }
 
 .buttons-container button:not(:last-child) {
