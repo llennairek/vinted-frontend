@@ -40,3 +40,7 @@ a {
   text-decoration: none;
   display: block;
 }
+
+.app-wrapper {
+  min-height: 100vh;
+}

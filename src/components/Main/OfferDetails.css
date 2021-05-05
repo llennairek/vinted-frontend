@@ -1,19 +1,31 @@
+.offer-details-wrapper {
+  height: calc(100vh - 52px);
+  background-color: #ebedee;
+}
+
 .offer-details-container {
-  margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 30px 20px;
 }
 
 .offer-img-container {
   width: 40%;
   height: 75vh;
 }
+
+.carousel-container {
+  height: 100%;
+}
+
 .offer-img-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .offer-infos {

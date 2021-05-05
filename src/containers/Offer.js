@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Header from "../components/Header/Header";
 import OfferDetails from "../components/Main/OfferDetails";
 
@@ -20,10 +20,10 @@ function Offer() {
   }, [id]);
 
   return (
-    <>
+    <div className="app-wrapper">
       <Header />
       <OfferDetails data={dataOffer} />
-    </>
+    </div>
   );
 }
 

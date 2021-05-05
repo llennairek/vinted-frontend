@@ -1,10 +1,12 @@
 .hero-container {
+  position: relative;
   height: 65vh;
   min-height: 400px;
   background-image: url("../../assets/hero-image.jpg");
   background-size: cover;
   background-position: center;
   justify-content: flex-start;
+  background-color: #ebedee;
 }
 
 .hero-card-wrapper {
@@ -24,4 +26,16 @@
 
 .hero-card button {
   margin-top: 32px;
+}
+
+.hero-overlay {
+  position: absolute;
+  background-image: url("../../assets/tear.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: 50%;
 }
