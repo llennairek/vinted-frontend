@@ -24,7 +24,7 @@ function Header({ handleToken, userToken }) {
             {userToken ? (
               <Button
                 text="Se déconnecter"
-                className="button-white"
+                className="button-red"
                 handleToken={handleToken}
               />
             ) : (

@@ -6,6 +6,8 @@ import "./Login.css";
 function Login({ handleToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const history = useHistory();
 
@@ -13,7 +15,7 @@ function Login({ handleToken }) {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        " https://lereacteur-vinted-api.herokuapp.com/user/login",
         {
           email,
           password,
@@ -23,6 +25,8 @@ function Login({ handleToken }) {
       history.push("/");
     } catch (error) {
       console.error(error.message);
+      setError(true);
+      setErrorMessage(error.response.data.message);
     }
   };
   return (
@@ -53,6 +57,7 @@ function Login({ handleToken }) {
           />
         </form>
         <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
+        {error ? <p className="error">{errorMessage}</p> : null}
       </div>
     </div>
   );

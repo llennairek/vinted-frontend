@@ -7,6 +7,8 @@ function Signup({ handleToken }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   let history = useHistory();
 
@@ -14,7 +16,7 @@ function Signup({ handleToken }) {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        " https://lereacteur-vinted-api.herokuapp.com/user/signup",
         {
           email,
           password,
@@ -24,7 +26,9 @@ function Signup({ handleToken }) {
       handleToken(response.data.token);
       history.push("/");
     } catch (error) {
-      console.error(error.message);
+      console.error(error.response.data.message);
+      setError(true);
+      setErrorMessage(error.response.data.message);
     }
   };
   return (
@@ -63,6 +67,7 @@ function Signup({ handleToken }) {
           />
         </form>
         <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
+        {error ? <p className="error">{errorMessage}</p> : null}
       </div>
     </div>
   );

@@ -13,12 +13,15 @@ function OfferItem({
     <div className="item-container">
       <Link to={`/offer/${_id}`} owner={owner}>
         <div className="owner">
-          <img
-            src={owner.account.avatar.secure_url}
-            alt="avatar"
-            width="24px"
-            height="24px"
-          />
+          {owner.account.avatar ? (
+            <img
+              src={owner.account.avatar.secure_url}
+              alt="avatar"
+              width="24px"
+              height="24px"
+            />
+          ) : null}
+
           <span>{owner.account.username}</span>
         </div>
         <div className="item-image-wrapper">
@@ -26,8 +29,8 @@ function OfferItem({
         </div>
         <div className="item-details">
           <p className="item-price">{product_price} €</p>
-          <p className="details">{product_details[1].TAILLE}</p>
-          <p className="details">{product_details[0].MARQUE}</p>
+          {/* <p className="details">{product_details[1].TAILLE}</p>
+          <p className="details">{product_details[0].MARQUE}</p> */}
         </div>
       </Link>
     </div>

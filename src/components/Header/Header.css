@@ -38,6 +38,10 @@ nav {
   display: flex;
 }
 
-.buttons-container a:not(:last-child) {
+.buttons-container a {
+  margin-right: 8px;
+}
+
+.buttons-container button:first-child {
   margin-right: 8px;
 }
