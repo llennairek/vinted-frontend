@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Offer from "./containers/Offer";
 import Home from "./containers/Home";
 import Signup from "./containers/Signup";
+import Login from "./containers/Login";
 import Header from "./components/Header/Header";
 import Cookies from "js-cookie";
 import { useState } from "react";
@@ -22,6 +23,9 @@ function App() {
     <Router>
       <Header userToken={userToken} handleToken={handleToken} />
       <Switch>
+        <Route path="/login">
+          <Login handleToken={handleToken} />
+        </Route>
         <Route path="/signup">
           <Signup handleToken={handleToken} />
         </Route>

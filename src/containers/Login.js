@@ -1,23 +1,21 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
 
-function Signup({ handleToken }) {
-  const [username, setUsername] = useState("");
+function Login({ handleToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  let history = useHistory();
+  const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
         {
           email,
           password,
-          username,
         }
       );
       handleToken(response.data.token);
@@ -27,35 +25,28 @@ function Signup({ handleToken }) {
     }
   };
   return (
-    <div className="signup-container">
-      <h2>S'inscrire</h2>
+    <div className="login-container">
+      <h2>Se connecter</h2>
       <form onSubmit={handleSubmit}>
         <input
-          type="text"
-          name="signup-text-input"
-          id="signup-text-input"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
           type="email"
-          name="signup-text-email"
-          id="signup-text-email"
+          name="login-text-email"
+          id="login-text-email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
-          name="signup-text-password"
-          id="signup-text-password"
+          name="login-text-password"
+          id="login-text-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input type="submit" value="S'inscrire" className="button-green" />
+        <input type="submit" value="Se connecter" className="button-green" />
       </form>
-      <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
+      <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
     </div>
   );
 }
 
-export default Signup;
+export default Login;

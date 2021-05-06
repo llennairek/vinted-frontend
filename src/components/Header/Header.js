@@ -32,7 +32,9 @@ function Header({ handleToken, userToken }) {
                 <Link to="/signup">
                   <Button text="S'inscrire" className="button-white" />
                 </Link>
-                <Button text="Se connecter" className="button-white" />
+                <Link to="/login">
+                  <Button text="Se connecter" className="button-white" />
+                </Link>
               </>
             )}
 
