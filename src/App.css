@@ -30,6 +30,7 @@ button {
   height: 44px;
   padding: 0 14px;
   font-size: 16px;
+  border-radius: 5px;
 }
 
 button:hover {
