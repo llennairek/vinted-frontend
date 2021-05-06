@@ -4,7 +4,7 @@ import Button from "../General/Button";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({ handleToken, userToken }) {
   return (
     <header>
       <div className="container">
@@ -21,8 +21,21 @@ function Header() {
             />
           </div>
           <div className="buttons-container">
-            <Button text="S'inscrire" className="button-white" />
-            <Button text="Se connecter" className="button-white" />
+            {userToken ? (
+              <Button
+                text="Se déconnecter"
+                className="button-white"
+                handleToken={handleToken}
+              />
+            ) : (
+              <>
+                <Link to="/signup">
+                  <Button text="S'inscrire" className="button-white" />
+                </Link>
+                <Button text="Se connecter" className="button-white" />
+              </>
+            )}
+
             <Button text="Vends tes articles" className="button-green" />
           </div>
         </nav>

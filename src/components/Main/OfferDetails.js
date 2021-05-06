@@ -18,7 +18,6 @@ function OfferDetails({ data }) {
       items: 1,
     },
   };
-  console.log(data);
 
   return (
     data && (

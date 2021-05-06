@@ -5,6 +5,7 @@ import "./OfferList.css";
 
 function OfferList() {
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -12,8 +13,8 @@ function OfferList() {
         const response = await axios.get(
           "https://lereacteur-vinted-api.herokuapp.com/offers"
         );
-        console.log(response.data);
         setData(response.data);
+        setIsLoading(false);
       } catch (error) {
         console.error({ error: error.message });
       }
@@ -22,7 +23,9 @@ function OfferList() {
     fetchData();
   }, []);
 
-  return (
+  return isLoading ? (
+    <div>En cours de chargement</div>
+  ) : (
     <main className="container">
       {data &&
         data.offers.map((item) => {
@@ -32,7 +35,6 @@ function OfferList() {
               _id={item._id}
               owner={item.owner}
               product_image={item.product_image}
-              product_name={item.product_name}
               product_price={item.product_price}
               product_details={item.product_details}
             />

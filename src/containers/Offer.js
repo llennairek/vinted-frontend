@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Header from "../components/Header/Header";
 import OfferDetails from "../components/Main/OfferDetails";
 
 function Offer() {
   const { id } = useParams();
   const [dataOffer, setDataOffer] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,6 +14,7 @@ function Offer() {
         `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
       );
       setDataOffer(response.data);
+      setIsLoading(false);
     };
 
     fetchData();
@@ -21,8 +22,11 @@ function Offer() {
 
   return (
     <div className="app-wrapper">
-      <Header />
-      <OfferDetails data={dataOffer} />
+      {isLoading ? (
+        <div>En cours de chargement</div>
+      ) : (
+        <OfferDetails data={dataOffer} />
+      )}
     </div>
   );
 }

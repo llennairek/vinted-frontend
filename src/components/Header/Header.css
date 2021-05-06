@@ -34,6 +34,10 @@ nav {
   line-height: 2;
 }
 
-.buttons-container button:not(:last-child) {
+.buttons-container {
+  display: flex;
+}
+
+.buttons-container a:not(:last-child) {
   margin-right: 8px;
 }
