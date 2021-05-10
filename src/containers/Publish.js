@@ -15,7 +15,11 @@ function Publish({ userToken }) {
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
 
+  const [previewImage, setPreviewImage] = useState("");
+
   const history = useHistory();
+
+  console.log(picture);
 
   //HANDLE FORM
   const handleSubmit = async (event) => {
@@ -69,14 +73,22 @@ function Publish({ userToken }) {
         <form onSubmit={handleSubmit} className="sell-wrapper">
           <div className="sell-files-wrapper sell-container">
             <label htmlFor="files-upload">
-              Ajoute une photo de l'article
+              {picture ? (
+                <img src={previewImage} height="100px" alt="preview" />
+              ) : (
+                "Ajoute une photo de l'article"
+              )}
+
               <input
                 type="file"
                 name="files-upload"
                 id="files-upload"
                 className="sell button-green"
                 onChange={(event) => {
-                  setPicture(event.target.files[0]);
+                  if (event.target.files[0]) {
+                    setPicture(event.target.files[0]);
+                    setPreviewImage(URL.createObjectURL(event.target.files[0]));
+                  }
                 }}
               />
               <div className="button-green button-big">
