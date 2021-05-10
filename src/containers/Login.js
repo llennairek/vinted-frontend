@@ -26,7 +26,7 @@ function Login({ handleToken }) {
     } catch (error) {
       console.error(error.message);
       setError(true);
-      setErrorMessage(error.response.data.message);
+      setErrorMessage("Mauvais email et/ou mot de passe");
     }
   };
   return (

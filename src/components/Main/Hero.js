@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../General/Button";
+import { Link } from "react-router-dom";
 import "./Hero.css";
 
 function Hero() {
@@ -10,10 +11,12 @@ function Hero() {
         <div className="container hero-card-wrapper">
           <div className="hero-card">
             <p>Prêts à faire du tri dans vos placards?</p>
-            <Button
-              text="Commencer à vendre"
-              className="button-green button-big"
-            />
+            <Link to="/Publish">
+              <Button
+                text="Commencer à vendre"
+                className="button-green button-big"
+              />
+            </Link>
           </div>
         </div>
       </div>

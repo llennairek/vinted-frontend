@@ -2,6 +2,7 @@ import React from "react";
 import "./OfferDetails.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import defaultAvatar from "../../assets/default-avatar.jpg";
 
 function OfferDetails({ data }) {
   const responsive = {
@@ -29,12 +30,16 @@ function OfferDetails({ data }) {
               responsive={responsive}
               removeArrowOnDeviceType={["tablet", "mobile"]}
             >
-              {data.product_pictures.map((item) => {
-                return (
-                  <img key={item.secure_url} src={item.secure_url} alt="" />
-                );
-              })}
-              <img src={data.product_pictures[0].secure_url} alt="" />
+              {data.product_pictures.length > 0 ? (
+                data.product_pictures.map((item) => {
+                  return (
+                    <img key={item.secure_url} src={item.secure_url} alt="" />
+                  );
+                })
+              ) : (
+                <img src={data.product_image.secure_url} alt="" />
+              )}
+              {/* <img src={data.product_pictures[0].secure_url} alt="" /> */}
             </Carousel>
           </div>
           <div className="offer-infos">
@@ -56,12 +61,21 @@ function OfferDetails({ data }) {
               <p>{data.product_description}</p>
             </div>
             <div className="offer-infos-owner">
-              <img
-                src={data.owner.account.avatar.secure_url}
-                alt="avatar"
-                width="32px"
-                height="32px"
-              />
+              {data.owner.account.avatar ? (
+                <img
+                  src={data.owner.account.avatar.secure_url}
+                  alt="avatar"
+                  width="24px"
+                  height="24px"
+                />
+              ) : (
+                <img
+                  src={defaultAvatar}
+                  alt="avatar"
+                  width="24px"
+                  height="24px"
+                />
+              )}
               <span>{data.owner.account.username}</span>
             </div>
             <button className="button-green">Acheter</button>

@@ -1,0 +1,81 @@
+.sell-main {
+  background-color: #ebedee;
+  height: calc(100vh - 120px);
+}
+
+.sell-main h1 {
+  margin-bottom: 20px;
+  padding-top: 40px;
+}
+
+.sell-main input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  font-size: 16px;
+  cursor: text;
+  width: 50%;
+}
+
+.sell-main input::placeholder,
+.sell-main textarea::placeholder {
+  color: #dbdedf;
+}
+
+.sell-main textarea {
+  width: 50%;
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  cursor: text;
+}
+
+.sell-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.sell-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 10px;
+}
+.sell-container label:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sell-container {
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+#files-upload {
+  display: none;
+}
+
+.sell-files-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.sell-files-wrapper div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* .sell-files-wrapper label {
+  margin: 0;
+} */
+
+#submit-form {
+  margin: auto;
+  cursor: pointer;
+}

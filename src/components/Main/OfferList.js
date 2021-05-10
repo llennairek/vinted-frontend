@@ -3,7 +3,16 @@ import axios from "axios";
 import OfferItem from "./OfferItem";
 import "./OfferList.css";
 
-function OfferList() {
+function OfferList({
+  filterInput,
+  setFilterInput,
+  sortFilter,
+  setSortFilter,
+  priceMinFilter,
+  setPriceMinFilter,
+  priceMaxFilter,
+  setPriceMaxFilter,
+}) {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -11,18 +20,18 @@ function OfferList() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          " https://lereacteur-vinted-api.herokuapp.com/offers"
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sortFilter}&title=${filterInput}&priceMin=${priceMinFilter}&priceMax=${priceMaxFilter}`
         );
         setData(response.data);
+
         setIsLoading(false);
-        console.log(response.data);
       } catch (error) {
         console.error({ error: error.message });
       }
     };
 
     fetchData();
-  }, []);
+  }, [filterInput, sortFilter, priceMinFilter, priceMaxFilter]);
 
   return isLoading ? (
     <div>En cours de chargement</div>

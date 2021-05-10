@@ -1,10 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
 import Button from "../General/Button";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { set } from "js-cookie";
+import { Range, getTrackBackground } from "react-range";
 
-function Header({ handleToken, userToken }) {
+function Header({
+  handleToken,
+  userToken,
+  filterInput,
+  setFilterInput,
+  sortFilter,
+  setSortFilter,
+  priceMinFilter,
+  setPriceMinFilter,
+  priceMaxFilter,
+  setPriceMaxFilter,
+}) {
+  const [sortIsActive, setSortIsActive] = useState(false);
+  const [values, setValues] = useState([priceMinFilter, priceMaxFilter]);
+
+  const handleSearchInput = (event) => {
+    setFilterInput(event.target.value);
+  };
+
+  const handleSortClick = () => {
+    setSortIsActive(!sortIsActive);
+    if (sortFilter === "price-asc") setSortFilter("price-desc");
+    else setSortFilter("price-asc");
+  };
+
+  const handleChangePrice = () => {
+    setPriceMinFilter(values[0]);
+    setPriceMaxFilter(values[1]);
+  };
+
   return (
     <header>
       <div className="container">
@@ -12,13 +43,82 @@ function Header({ handleToken, userToken }) {
           <Link to="/">
             <Logo />
           </Link>
-          <div className="search-container">
-            <input
-              type="text"
-              name="search"
-              id="search"
-              placeholder="Rechercher des articles"
-            />
+          <div className="filter-container">
+            <div className="search-container">
+              <input
+                type="text"
+                name="search"
+                id="search"
+                placeholder="Rechercher des articles"
+                value={filterInput}
+                onChange={handleSearchInput}
+              />
+            </div>
+            <div className="all-filters-price">
+              <span>Trier par prix</span>
+              <div
+                onClick={handleSortClick}
+                className={
+                  sortIsActive ? `filter-sort isActive` : "filter-sort"
+                }
+              ></div>
+              <span>Prix entre</span>
+              <Range
+                step={1}
+                min={0}
+                max={100}
+                values={values}
+                onChange={(values) => setValues([...values])}
+                onFinalChange={handleChangePrice}
+                renderTrack={({ props, children }) => (
+                  <div
+                    {...props}
+                    style={{
+                      ...props.style,
+                      height: "6px",
+                      width: "50%",
+                      background: getTrackBackground({
+                        values,
+                        colors: ["#ccc", "#2baeb7", "#ccc"],
+                        min: 0,
+                        max: 100,
+                      }),
+                    }}
+                  >
+                    {children}
+                  </div>
+                )}
+                renderThumb={({ index, props }) => (
+                  <div
+                    {...props}
+                    style={{
+                      ...props.style,
+                      height: "16px",
+                      width: "16px",
+                      backgroundColor: "#2baeb7",
+                      borderRadius: "50%",
+                      outline: "none",
+                    }}
+                  >
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "-28px",
+                        color: "#fff",
+                        fontWeight: "bold",
+                        fontSize: "14px",
+                        fontFamily: "Arial,Helvetica Neue,Helvetica,sans-serif",
+                        padding: "4px",
+                        borderRadius: "4px",
+                        backgroundColor: "#2baeb7",
+                      }}
+                    >
+                      {values[index].toFixed(1)}
+                    </div>
+                  </div>
+                )}
+              />
+            </div>
           </div>
           <div className="buttons-container">
             {userToken ? (
@@ -38,7 +138,9 @@ function Header({ handleToken, userToken }) {
               </>
             )}
 
-            <Button text="Vends tes articles" className="button-green" />
+            <Link to="/Publish">
+              <Button text="Vends tes articles" className="button-green" />
+            </Link>
           </div>
         </nav>
       </div>

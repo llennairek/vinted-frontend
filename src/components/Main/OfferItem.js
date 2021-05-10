@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./OfferItem.css";
+import defaultAvatar from "../../assets/default-avatar.jpg";
 
 function OfferItem({
   _id,
@@ -20,7 +21,9 @@ function OfferItem({
               width="24px"
               height="24px"
             />
-          ) : null}
+          ) : (
+            <img src={defaultAvatar} alt="avatar" width="24px" height="24px" />
+          )}
 
           <span>{owner.account.username}</span>
         </div>
@@ -29,8 +32,8 @@ function OfferItem({
         </div>
         <div className="item-details">
           <p className="item-price">{product_price} €</p>
-          {/* <p className="details">{product_details[1].TAILLE}</p>
-          <p className="details">{product_details[0].MARQUE}</p> */}
+          <p className="details">{product_details[1].TAILLE}</p>
+          <p className="details">{product_details[0].MARQUE}</p>
         </div>
       </Link>
     </div>

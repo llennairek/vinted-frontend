@@ -4,12 +4,20 @@ import Offer from "./containers/Offer";
 import Home from "./containers/Home";
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
+import Publish from "./containers/Publish";
 import Header from "./components/Header/Header";
 import Cookies from "js-cookie";
 import { useState } from "react";
+import { Redirect } from "react-router-dom";
 
 function App() {
+  //TOKEN STATE
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
+  //FILTERS STATE
+  const [filterInput, setFilterInput] = useState("");
+  const [sortFilter, setSortFilter] = useState("price-asc");
+  const [priceMinFilter, setPriceMinFilter] = useState(0);
+  const [priceMaxFilter, setPriceMaxFilter] = useState(100);
 
   const handleToken = (token) => {
     if (token) {
@@ -21,8 +29,26 @@ function App() {
   };
   return (
     <Router>
-      <Header userToken={userToken} handleToken={handleToken} />
+      <Header
+        userToken={userToken}
+        handleToken={handleToken}
+        filterInput={filterInput}
+        setFilterInput={setFilterInput}
+        sortFilter={sortFilter}
+        setSortFilter={setSortFilter}
+        priceMinFilter={priceMinFilter}
+        setPriceMinFilter={setPriceMinFilter}
+        priceMaxFilter={priceMaxFilter}
+        setPriceMaxFilter={setPriceMaxFilter}
+      />
       <Switch>
+        <Route path="/publish">
+          {userToken ? (
+            <Publish userToken={userToken} />
+          ) : (
+            <Redirect to="/login" />
+          )}
+        </Route>
         <Route path="/login">
           <Login handleToken={handleToken} />
         </Route>
@@ -33,7 +59,16 @@ function App() {
           <Offer />
         </Route>
         <Route path="/">
-          <Home />
+          <Home
+            filterInput={filterInput}
+            setFilterInput={setFilterInput}
+            sortFilter={sortFilter}
+            setSortFilter={setSortFilter}
+            priceMinFilter={priceMinFilter}
+            setPriceMinFilter={setPriceMinFilter}
+            priceMaxFilter={priceMaxFilter}
+            setPriceMaxFilter={setPriceMaxFilter}
+          />
         </Route>
       </Switch>
     </Router>
