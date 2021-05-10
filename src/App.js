@@ -17,7 +17,7 @@ function App() {
   const [filterInput, setFilterInput] = useState("");
   const [sortFilter, setSortFilter] = useState("price-asc");
   const [priceMinFilter, setPriceMinFilter] = useState(0);
-  const [priceMaxFilter, setPriceMaxFilter] = useState(100);
+  const [priceMaxFilter, setPriceMaxFilter] = useState(500);
 
   const handleToken = (token) => {
     if (token) {

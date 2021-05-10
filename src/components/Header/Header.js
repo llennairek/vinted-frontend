@@ -66,7 +66,7 @@ function Header({
               <Range
                 step={1}
                 min={0}
-                max={100}
+                max={500}
                 values={values}
                 onChange={(values) => setValues([...values])}
                 onFinalChange={handleChangePrice}
