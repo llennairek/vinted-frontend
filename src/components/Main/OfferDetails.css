@@ -1,5 +1,5 @@
 .offer-details-wrapper {
-  height: calc(100vh - 52px);
+  height: calc(100vh - 120px);
   background-color: #ebedee;
 }
 
@@ -12,7 +12,7 @@
 
 .offer-img-container {
   width: 40%;
-  height: 75vh;
+  height: 60vh;
 }
 
 .carousel-container {
@@ -31,7 +31,7 @@
 .offer-infos {
   background-color: #fff;
   width: 30%;
-  height: 75vh;
+  min-height: 60vh;
   padding: 25px 20px;
   display: flex;
   flex-direction: column;
@@ -82,4 +82,28 @@
   object-fit: cover;
   object-position: center;
   margin-right: 8px;
+}
+
+@media screen and (max-width: 968px) {
+  .offer-details-container {
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .offer-img-container {
+    height: 40vh;
+  }
+
+  .offer-infos {
+    margin-top: 20px;
+    height: auto;
+    width: 100%;
+    min-height: 0;
+  }
+
+  .offer-infos-details-item,
+  .offer-indos-description,
+  .offer-infos-owner {
+    margin-bottom: 15px;
+  }
 }
