@@ -3,7 +3,6 @@ import Logo from "./Logo";
 import Button from "../General/Button";
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { set } from "js-cookie";
 import { Range, getTrackBackground } from "react-range";
 
 function Header({
@@ -81,7 +80,7 @@ function Header({
                         values,
                         colors: ["#ccc", "#2baeb7", "#ccc"],
                         min: 0,
-                        max: 100,
+                        max: 500,
                       }),
                     }}
                   >
