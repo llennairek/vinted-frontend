@@ -24,7 +24,7 @@ function Login({ handleToken, userConnected, setUserConnected }) {
       handleToken(response.data.token);
       setUserConnected({
         account: response.data.account,
-        id: response.data._id,
+        id: response.data.id,
       });
       alert(
         `Bonjour ${response.data.account.username} ! Vous allez maintenant être redirigé vers la page d'accueil`

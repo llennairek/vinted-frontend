@@ -19,8 +19,6 @@ function Publish({ userToken }) {
 
   const history = useHistory();
 
-  console.log(picture);
-
   //HANDLE FORM
   const handleSubmit = async (event) => {
     event.preventDefault();

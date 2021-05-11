@@ -16,7 +16,6 @@ function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   //USER CONNECTED INFORMATION
   const [userConnected, setUserConnected] = useState({});
-  console.log(userConnected);
   //FILTERS STATE
   const [filterInput, setFilterInput] = useState("");
   const [sortFilter, setSortFilter] = useState("price-asc");
@@ -44,6 +43,7 @@ function App() {
         setPriceMinFilter={setPriceMinFilter}
         priceMaxFilter={priceMaxFilter}
         setPriceMaxFilter={setPriceMaxFilter}
+        userConnected={userConnected}
         setUserConnected={setUserConnected}
       />
       <Switch>

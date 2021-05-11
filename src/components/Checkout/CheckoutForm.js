@@ -11,8 +11,6 @@ function CheckoutForm({ data, userToken, userConnected }) {
 
   const [completed, setCompleted] = useState(false);
 
-  console.log(data);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const cardElement = elements.getElement(CardElement);
@@ -20,7 +18,7 @@ function CheckoutForm({ data, userToken, userConnected }) {
       const stripeResponse = await stripe.createToken(cardElement, {
         name: userConnected.id,
       });
-      console.log(stripeResponse);
+
       const stripeToken = stripeResponse.token.id;
       const response = await axios.post(
         "https://baf-vinted-backend.herokuapp.com/payment",
@@ -36,7 +34,7 @@ function CheckoutForm({ data, userToken, userConnected }) {
           },
         }
       );
-      console.log(response.data);
+
       if (response.data.status === "succeeded") {
         setCompleted(true);
       }

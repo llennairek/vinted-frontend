@@ -19,9 +19,6 @@ function Payment({ userToken, userConnected }) {
   const shippingFee = 0.8;
   const total = Number(data.product_price) + protectFee + shippingFee;
 
-  console.log(data);
-  console.log("userToken:    ", userToken);
-
   return (
     <div className="payment-wrapper">
       <div className="payment-container">
