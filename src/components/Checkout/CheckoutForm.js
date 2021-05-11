@@ -10,6 +10,7 @@ function CheckoutForm({ data, userToken, userConnected }) {
   const currency = "eur";
 
   const [completed, setCompleted] = useState(false);
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,9 +38,12 @@ function CheckoutForm({ data, userToken, userConnected }) {
 
       if (response.data.status === "succeeded") {
         setCompleted(true);
+        setMessage("Paiement effectué !");
       }
     } catch (error) {
       console.error(error.message);
+      setCompleted(true);
+      setMessage("Paiement refusé !");
     }
   };
 
@@ -53,7 +57,7 @@ function CheckoutForm({ data, userToken, userConnected }) {
           </button>
         </form>
       ) : (
-        <span className="payment-done bold">Paiement effectué !</span>
+        <span className="payment-done bold">{message}</span>
       )}
     </div>
   );
