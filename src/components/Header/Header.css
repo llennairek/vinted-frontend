@@ -89,6 +89,17 @@ nav {
   transform: translate(90%, -50%) rotate(180deg);
 }
 
+.user {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.user img {
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
 .buttons-container {
   display: flex;
 }

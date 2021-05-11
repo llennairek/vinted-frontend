@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Logo from "./Logo";
 import Button from "../General/Button";
+import avatar from "../../assets/avatarV2.png";
 import "./Header.css";
 import { Link, useLocation } from "react-router-dom";
 import { Range, getTrackBackground } from "react-range";
@@ -16,12 +17,15 @@ function Header({
   setPriceMinFilter,
   priceMaxFilter,
   setPriceMaxFilter,
+  userConnected,
   setUserConnected,
 }) {
   const [sortIsActive, setSortIsActive] = useState(false);
   const [values, setValues] = useState([priceMinFilter, priceMaxFilter]);
 
   let location = useLocation();
+
+  console.log(userConnected);
 
   const handleSearchInput = (event) => {
     setFilterInput(event.target.value);
@@ -126,7 +130,23 @@ function Header({
               </div>
             </div>
           )}
-
+          <div className="user">
+            {userConnected.account && (
+              <>
+                <img
+                  src={
+                    userConnected.account.avatar
+                      ? userConnected.account.avatar.secure_url
+                      : avatar
+                  }
+                  height="28px"
+                  width="28px"
+                  alt="avatar"
+                />
+                <span>{userConnected.account.username}</span>
+              </>
+            )}
+          </div>
           <div className="buttons-container">
             {userToken ? (
               <Button
