@@ -25,8 +25,6 @@ function Header({
 
   let location = useLocation();
 
-  console.log(userConnected);
-
   const handleSearchInput = (event) => {
     setFilterInput(event.target.value);
   };
