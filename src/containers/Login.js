@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
 
-function Login({ handleToken }) {
+function Login({ handleToken, userConnected, setUserConnected }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -22,6 +22,13 @@ function Login({ handleToken }) {
         }
       );
       handleToken(response.data.token);
+      setUserConnected({
+        account: response.data.account,
+        id: response.data._id,
+      });
+      alert(
+        `Bonjour ${response.data.account.username} ! Vous allez maintenant être redirigé vers la page d'accueil`
+      );
       history.push("/");
     } catch (error) {
       console.error(error.message);

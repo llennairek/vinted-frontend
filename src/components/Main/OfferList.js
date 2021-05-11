@@ -34,7 +34,7 @@ function OfferList({
   }, [filterInput, sortFilter, priceMinFilter, priceMaxFilter]);
 
   return isLoading ? (
-    <div>En cours de chargement</div>
+    <div className="loading">En cours de chargement...</div>
   ) : (
     <main className="container">
       {data &&

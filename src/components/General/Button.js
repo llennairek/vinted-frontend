@@ -1,8 +1,10 @@
 import React from "react";
 
-function Button({ text, className, handleToken }) {
+function Button({ text, className, handleToken, setUserConnected }) {
   const handleClick = () => {
     if (handleToken) {
+      setUserConnected({});
+      alert("Vous êtes maintenant déconnecté");
       handleToken(null);
     }
   };

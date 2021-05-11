@@ -1,5 +1,5 @@
 .offer-details-wrapper {
-  height: calc(100vh - 120px);
+  min-height: calc(100vh - 120px);
   background-color: #ebedee;
 }
 
@@ -91,18 +91,19 @@
   }
 
   .offer-img-container {
-    height: 40vh;
+    height: 50vh;
+    width: 60%;
   }
 
   .offer-infos {
     margin-top: 20px;
     height: auto;
-    width: 100%;
+    width: 80%;
     min-height: 0;
   }
 
   .offer-infos-details-item,
-  .offer-indos-description,
+  .offer-infos-description,
   .offer-infos-owner {
     margin-bottom: 15px;
   }

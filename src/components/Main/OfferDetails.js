@@ -3,8 +3,10 @@ import "./OfferDetails.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import defaultAvatar from "../../assets/default-avatar.jpg";
+import { useHistory } from "react-router-dom";
 
-function OfferDetails({ data }) {
+function OfferDetails({ data, userToken }) {
+  //responsiveness for the react-multi-carousel
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -20,6 +22,16 @@ function OfferDetails({ data }) {
     },
   };
 
+  let history = useHistory();
+
+  const handleBuyClick = () => {
+    if (userToken) {
+      history.push("/payment", { data });
+    } else {
+      history.push("/login");
+    }
+  };
+
   return (
     data && (
       <div className="offer-details-wrapper">
@@ -28,12 +40,16 @@ function OfferDetails({ data }) {
             <Carousel
               containerClass="carousel-container"
               responsive={responsive}
-              removeArrowOnDeviceType={["tablet", "mobile"]}
+              removeArrowOnDeviceType={["mobile"]}
             >
               {data.product_pictures.length > 0 ? (
                 data.product_pictures.map((item) => {
                   return (
-                    <img key={item.secure_url} src={item.secure_url} alt="" />
+                    <img
+                      key={item.secure_url}
+                      src={item.secure_url}
+                      alt="product"
+                    />
                   );
                 })
               ) : (
@@ -78,7 +94,9 @@ function OfferDetails({ data }) {
               )}
               <span>{data.owner.account.username}</span>
             </div>
-            <button className="button-green">Acheter</button>
+            <button className="button-green" onClick={handleBuyClick}>
+              Acheter
+            </button>
           </div>
         </div>
       </div>

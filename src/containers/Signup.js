@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "./Signup.css";
 
-function Signup({ handleToken }) {
+function Signup({ handleToken, userConnected, setUserConnected }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,6 +24,13 @@ function Signup({ handleToken }) {
         }
       );
       handleToken(response.data.token);
+      setUserConnected({
+        account: response.data.account,
+        id: response.data._id,
+      });
+      alert(
+        `Bienvenue ${response.data.account.username} ! Vous allez maintenant être redirigé vers la page d'accueil`
+      );
       history.push("/");
     } catch (error) {
       console.error(error.response.data.message);

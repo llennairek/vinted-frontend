@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import OfferDetails from "../components/Main/OfferDetails";
 
-function Offer() {
+function Offer({ userToken }) {
   const { id } = useParams();
   const [dataOffer, setDataOffer] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +25,7 @@ function Offer() {
       {isLoading ? (
         <div>En cours de chargement</div>
       ) : (
-        <OfferDetails data={dataOffer} />
+        <OfferDetails data={dataOffer} userToken={userToken} />
       )}
     </div>
   );

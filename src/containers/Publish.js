@@ -56,8 +56,6 @@ function Publish({ userToken }) {
             },
           }
         );
-        console.log(response);
-        console.log(response.data);
         history.push(`/offer/${response.data._id}`);
       } catch (error) {
         console.error(error.message);

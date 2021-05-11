@@ -16,6 +16,7 @@ function Header({
   setPriceMinFilter,
   priceMaxFilter,
   setPriceMaxFilter,
+  setUserConnected,
 }) {
   const [sortIsActive, setSortIsActive] = useState(false);
   const [values, setValues] = useState([priceMinFilter, priceMaxFilter]);
@@ -44,18 +45,19 @@ function Header({
           <Link to="/">
             <Logo />
           </Link>
-          <div className="filter-container">
-            <div className="search-container">
-              <input
-                type="text"
-                name="search"
-                id="search"
-                placeholder="Rechercher des articles"
-                value={filterInput}
-                onChange={handleSearchInput}
-              />
-            </div>
-            {location.pathname === "/" && (
+          {location.pathname === "/" && (
+            <div className="filter-container">
+              <div className="search-container">
+                <input
+                  type="text"
+                  name="search"
+                  id="search"
+                  placeholder="Rechercher des articles"
+                  value={filterInput}
+                  onChange={handleSearchInput}
+                />
+              </div>
+
               <div className="all-filters-price">
                 <span>Trier par prix</span>
                 <div
@@ -122,14 +124,16 @@ function Header({
                   )}
                 />
               </div>
-            )}
-          </div>
+            </div>
+          )}
+
           <div className="buttons-container">
             {userToken ? (
               <Button
                 text="Se déconnecter"
                 className="button-red"
                 handleToken={handleToken}
+                setUserConnected={setUserConnected}
               />
             ) : (
               <>
