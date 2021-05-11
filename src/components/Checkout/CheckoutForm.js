@@ -23,7 +23,7 @@ function CheckoutForm({ data, userToken, userConnected }) {
       console.log(stripeResponse);
       const stripeToken = stripeResponse.token.id;
       const response = await axios.post(
-        "http://localhost:3001/payment",
+        "https://baf-vinted-backend.herokuapp.com/payment",
         {
           stripeToken,
           amount: Number(data.product_price) * 100,
