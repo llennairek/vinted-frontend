@@ -15,7 +15,7 @@ function Login({ handleToken, userConnected, setUserConnected }) {
     event.preventDefault();
     try {
       const response = await axios.post(
-        " https://lereacteur-vinted-api.herokuapp.com/user/login",
+        "https://baf-vinted-backend.herokuapp.com/user/login",
         {
           email,
           password,

@@ -2,7 +2,7 @@ import React from "react";
 import "./OfferDetails.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import defaultAvatar from "../../assets/default-avatar.jpg";
+import defaultAvatar from "../../assets/avatarV2.png";
 import { useHistory } from "react-router-dom";
 
 function OfferDetails({ data, userToken }) {
@@ -42,7 +42,7 @@ function OfferDetails({ data, userToken }) {
               responsive={responsive}
               removeArrowOnDeviceType={["mobile"]}
             >
-              {data.product_pictures.length > 0 ? (
+              {data.product_pictures && data.product_pictures.length > 0 ? (
                 data.product_pictures.map((item) => {
                   return (
                     <img

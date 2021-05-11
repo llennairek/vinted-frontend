@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./OfferItem.css";
-import defaultAvatar from "../../assets/default-avatar.jpg";
+import defaultAvatar from "../../assets/avatarV2.png";
 
 function OfferItem({
   _id,

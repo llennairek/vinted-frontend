@@ -20,7 +20,7 @@ function OfferList({
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sortFilter}&title=${filterInput}&priceMin=${priceMinFilter}&priceMax=${priceMaxFilter}`
+          `https://baf-vinted-backend.herokuapp.com/offers?sort=${sortFilter}&title=${filterInput}&priceMin=${priceMinFilter}&priceMax=${priceMaxFilter}`
         );
         setData(response.data);
 

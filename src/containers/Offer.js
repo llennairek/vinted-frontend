@@ -11,7 +11,7 @@ function Offer({ userToken }) {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+        `https://baf-vinted-backend.herokuapp.com/offer/${id}`
       );
       setDataOffer(response.data);
       setIsLoading(false);
