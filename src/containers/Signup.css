@@ -1,5 +1,5 @@
 .signup-wrapper {
-  height: calc(100vh - 52px);
+  height: calc(100vh - 120px);
   display: flex;
   justify-content: center;
 }

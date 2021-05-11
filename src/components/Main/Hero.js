@@ -22,7 +22,12 @@ function Hero() {
       </div>
       <div className="hero-card-phones">
         <p>Prêts à faire du tri dans vos placards?</p>
-        <Button text="Commencer à vendre" className="button-green button-big" />
+        <Link to="/Publish">
+          <Button
+            text="Commencer à vendre"
+            className="button-green button-big"
+          />
+        </Link>
       </div>
     </>
   );

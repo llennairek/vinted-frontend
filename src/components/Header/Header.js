@@ -40,8 +40,51 @@ function Header({
     setPriceMaxFilter(values[1]);
   };
 
+  const handleMenuClick = (event) => {
+    event.target.classList.toggle("active");
+    const modal = document.querySelector(".modal-container");
+    const filterContainer = document.querySelector(".filter-container");
+
+    modal.style.display === "block"
+      ? (modal.style.display = "none")
+      : (modal.style.display = "block");
+
+    if (filterContainer) {
+      filterContainer.style.display === "flex"
+        ? (filterContainer.style.display = "none")
+        : (filterContainer.style.display = "flex");
+    }
+  };
+
   return (
     <header>
+      <div className="modal-container">
+        <div className="modal">
+          <div className="buttons-container-modal">
+            {userToken ? (
+              <Button
+                text="Se déconnecter"
+                className="button-red"
+                handleToken={handleToken}
+                setUserConnected={setUserConnected}
+              />
+            ) : (
+              <>
+                <Link to="/signup">
+                  <Button text="S'inscrire" className="button-white" />
+                </Link>
+                <Link to="/login">
+                  <Button text="Se connecter" className="button-white" />
+                </Link>
+              </>
+            )}
+
+            <Link to="/Publish">
+              <Button text="Vends tes articles" className="button-green" />
+            </Link>
+          </div>
+        </div>
+      </div>
       <div className="container">
         <nav>
           <Link to="/">
@@ -167,6 +210,9 @@ function Header({
             <Link to="/Publish">
               <Button text="Vends tes articles" className="button-green" />
             </Link>
+          </div>
+          <div className="menu-wrapper" onClick={handleMenuClick}>
+            <div className="menu"></div>
           </div>
         </nav>
       </div>

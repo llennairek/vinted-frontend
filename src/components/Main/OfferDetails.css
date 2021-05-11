@@ -108,3 +108,9 @@
     margin-bottom: 15px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .offer-img-container {
+    width: 80%;
+  }
+}

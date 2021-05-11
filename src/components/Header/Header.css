@@ -1,5 +1,6 @@
 header {
   background-color: #fff;
+  position: relative;
 }
 
 nav {
@@ -26,7 +27,7 @@ nav {
   display: flex;
   align-items: center;
   background-color: #f5f6f7;
-
+  margin-bottom: 5px;
   padding: 0 11px;
   border-radius: 3px;
 }
@@ -112,5 +113,127 @@ nav {
   margin-right: 8px;
 }
 
-@media screen and (max-width: 768px) {
+.menu {
+  position: relative;
+  width: 30px;
+  height: 3px;
+  background-color: #089da4;
+  pointer-events: none;
+  transition: background-color 0.5s;
+}
+
+.menu::before {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 3px;
+  background-color: #089da4;
+  top: -7px;
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+.menu::after {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 3px;
+  background-color: #089da4;
+  top: 7px;
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+.menu-wrapper {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  display: none;
+}
+
+.menu-wrapper.active .menu {
+  background-color: transparent;
+}
+
+.menu-wrapper.active .menu::before {
+  opacity: 1;
+  transform: translateY(-3.5px) rotate(45deg);
+}
+
+.menu-wrapper.active .menu::after {
+  opacity: 1;
+  transform: translateY(3.5px) rotate(-45deg);
+}
+
+.modal-container {
+  position: fixed;
+  z-index: 10;
+  height: calc(100vh - 120px);
+  width: 100%;
+  top: 120px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: flex-end;
+  display: none;
+}
+
+.modal {
+  height: 30%;
+  width: auto;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.buttons-container-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media screen and (max-width: 928px) {
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+
+  /* .filter-container {
+    display: none;
+  } */
+
+  .buttons-container {
+    display: none;
+  }
+
+  .menu-wrapper {
+    display: flex;
+  }
+
+  .filter-container {
+    position: absolute;
+    left: 20px;
+    top: 120px;
+    z-index: 15;
+    width: 50%;
+    display: none;
+  }
+
+  .all-filters-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: 150px;
+    padding: 0;
+  }
+
+  .all-filters-price > div:last-child {
+    width: 80% !important;
+    margin-top: 20px;
+  }
 }
