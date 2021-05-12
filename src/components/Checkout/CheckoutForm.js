@@ -7,6 +7,8 @@ function CheckoutForm({ data, userToken, userConnected }) {
   const stripe = useStripe();
   const elements = useElements();
 
+  console.log(data);
+
   const currency = "eur";
 
   const [completed, setCompleted] = useState(false);
@@ -27,7 +29,7 @@ function CheckoutForm({ data, userToken, userConnected }) {
           stripeToken,
           amount: Number(data.product_price) * 100,
           currency,
-          description: data.product_description,
+          description: data.product_name,
         },
         {
           headers: {
