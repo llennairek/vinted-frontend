@@ -1,72 +1,79 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 👖 👗 VINTED CLONE - FRONTEND
 
-# LIVE SITE
-https://angry-banach-5bc60d.netlify.app/
+Date : May 2021  
+
+Backend Repo - https://github.com/llennairek/Vinted-backend  
+Website - https://angry-banach-5bc60d.netlify.app/
+
+## 📝 The Project
 
 
-## Available Scripts
+Vinted web app made at Bootcamp [Le Reacteur](https://www.lereacteur.io/).  
 
-In the project directory, you can run:
+Clone the Vinted website, add authentication, add payment via Stripe, upload images with cloudinary API, create the backend.
 
-### `yarn start`
+Following screenshots in order: home page, product page, payment page, sell product page, signup and login
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Vinted Home Page](https://user-images.githubusercontent.com/78684032/123455408-f3d34800-d5e1-11eb-9471-ad609832bbdf.png)
+---
+![Vinted Product Page](https://user-images.githubusercontent.com/78684032/123455756-604e4700-d5e2-11eb-97b1-079a91a2aa05.png)
+---
+![Vinted Payment Page](https://user-images.githubusercontent.com/78684032/123455841-76f49e00-d5e2-11eb-9287-1e81f6962de1.png)
+---
+![Vinted Sell Product Page](https://user-images.githubusercontent.com/78684032/123456455-2467b180-d5e3-11eb-90e8-fcb548cbb601.png)
+---
+![Vinted SignUp Page](https://user-images.githubusercontent.com/78684032/123456548-419c8000-d5e3-11eb-8cf4-562f67288af6.png)
+---
+![Vinted Login Page](https://user-images.githubusercontent.com/78684032/123456600-4f520580-d5e3-11eb-838d-97638b3d818f.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📃 Tasks
 
-### `yarn build`
+✔️ Clone Vinted website  
+✔️ A Home page with all the product list  
+✔️ A Product page  
+✔️ A Payment page  
+✔️ A Sell product page  
+✔️ Create navigation  (react-router)  
+✔️ Sort and filter by price  
+✔️ Implement authentication: login and signup   
+✔️ Implement payment (Stripe)  
+✔️ Responsive  
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## 🧱 Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="https://user-images.githubusercontent.com/78684032/122961185-719a1800-d384-11eb-906a-3854e856537b.png" width="15" height="15">   JavaScript  
+<img src="https://user-images.githubusercontent.com/78684032/122961496-bcb42b00-d384-11eb-9ed9-d28ebe488d52.png" width="15" height="15">   ReactJS  
+<img src="https://user-images.githubusercontent.com/78684032/122961852-19174a80-d385-11eb-8e49-67b7afe7e605.png" width="15" height="15">   HTML5   
+<img src="https://user-images.githubusercontent.com/78684032/122962917-24b74100-d386-11eb-8936-c97fde244ee8.jpg" width="15" height="15">   CSS3  
+<img src="https://user-images.githubusercontent.com/78684032/122963272-6811af80-d386-11eb-894b-0b32fff324bf.png" width="15" height="15">   Netlify  
 
-### `yarn eject`
+## 📦 Packages
+stripe  
+react-router-dom  
+axios  
+js-cookie   
+react-range  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 💻 Installation and usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Be sure, you have installed all dependencies to run the project.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 🎬 Running the project
 
-## Learn More
+1️. Clone this repository
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`git clone https://github.com/llennairek/vinted-frontend`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`cd vinted-frontend`
 
-### Code Splitting
+2️. Install packages
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+`yarn`
 
-### Analyzing the Bundle Size
+3️. When installation is complete:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+`yarn start`
